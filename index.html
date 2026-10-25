@@ -110,6 +110,17 @@ sup.c{font-size:.5em;font-weight:600;color:var(--olive);margin-left:3px;vertical
 .cover .wave{display:block;margin:34px 0 4px;width:1408px;height:60px}
 .cover .tx{font-size:22px}
 .cover .hl::after{font-size:17px}
+.cover figure{position:relative;margin:0}
+/* 표지 코드 패널: 무전 한 줄이 7필드 데이터가 되는 모습 */
+.code{position:absolute;left:-110px;bottom:38px;margin:0;background:#16211C;color:#DDE3D6;font-family:var(--mono);font-size:18px;line-height:1.6;padding:16px 24px 18px;border-radius:6px;box-shadow:0 14px 34px rgba(16,24,20,.32);white-space:pre}
+.code .h{color:#8FA085;font-size:15px}
+.code .k{color:#F2A900}
+.code .s{color:#C9D8A8}
+.code .p{color:#7F8B83}
+@media (prefers-reduced-motion:no-preference){
+  .cover.active .code{animation:code-in .5s ease-out 1.4s both}
+  @keyframes code-in{from{opacity:0;transform:translateY(8px)}to{}}
+}
 .cover .meta{margin-top:auto;padding:14px 0 20px;border-top:1px solid var(--line);display:flex;gap:56px;font-size:17px;color:var(--muted)}
 @media (prefers-reduced-motion:no-preference){
   .cover.active .hl{animation:hl-in .55s ease-out both;animation-delay:var(--d,0s)}
@@ -312,8 +323,15 @@ sup.c{font-size:.5em;font-weight:600;color:var(--olive);margin-left:3px;vertical
       <p class="ttl2">데이터를 만드는 제품</p>
       <p class="lede">1단계 전장 음성 엔진의 다음 걸음</p>
     </div>
-    <figure style="margin:0">
+    <figure>
       <img class="photo" src="assets/cover.jpg" alt="헤드셋을 쓰고 무전기 송수화기로 교신하는 교육생 (AI 생성 이미지)">
+<pre class="code" aria-label="무전 한 줄을 7필드로 구조화한 예시"><span class="h">// 무전 음성 → 7필드 구조화</span>
+<span class="p">{</span>
+  <span class="k">"시간"</span><span class="p">:</span>   <span class="s">"14:20"</span><span class="p">,</span>
+  <span class="k">"좌표"</span><span class="p">:</span>   <span class="s">"CH 1234 5678"</span><span class="p">,</span>
+  <span class="k">"표적명"</span><span class="p">:</span> <span class="s">"적 보병 분대"</span><span class="p">,</span>
+  <span class="k">"상황"</span><span class="p">:</span>   <span class="s">"북쪽으로 이동 중"</span>
+<span class="p">}</span></pre>
       <figcaption class="cap">AI 생성 이미지(Codex). 실제 장면이 아닙니다.</figcaption>
     </figure>
   </div>
